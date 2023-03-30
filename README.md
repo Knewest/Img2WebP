@@ -1,2 +1,12 @@
-# Lossless-WebP-Converter
-Losslessly convert animated PNG (APNG), PNG, JPG, JPEG, JPE, EXIF, JFIF, BMP, DIB, RLE, AVIF, TIF, TIFF, JXR, WDP, WMP, HEIC and GIF to WebP.
+## Losslessly convert these image types to WebP using Img2WebP:
+- PNG (*.png)
+- APNG (*.png)
+- JPEG 1 (*.jpeg, *.jpg, *.jpe, *.jfif, *.exif)
+- JPEG XR (*.jxr, *.wdp, *.wmp)
+- JPEG XL (*.jxl)
+- BMP (*.bmp, *.dib, *.rle)
+- TIFF (*.tiff, *.tif)
+- TGA (*.tga)
+- GIF (*.gif)
+- AV1/AVIF (*.avif)
+- HEIC (*.heic)
