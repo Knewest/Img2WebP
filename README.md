@@ -1,4 +1,4 @@
-## Losslessly convert these image types to WebP using Img2WebP:
+## Convert these image types to WebP (lossless) using Img2WebP:
 - PNG (*.png)
 - APNG (*.png)
 - JPEG 1 (*.jpeg, *.jpg, *.jpe, *.jfif, *.exif)
