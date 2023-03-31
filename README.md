@@ -16,3 +16,5 @@
 ### Notes:
 JPEG 1 is first losslessly converted to JPEG XL - which has the ability to do lossless JPEG 1 recompression - as an intermediate format to then losslessly convert to WebP. <br>
 Without this intermediate format, JPEG 1 would lose quality upon being converted, even if it was supposed to be lossless. JPEG 1 is a volatile format.
+
+To use the program, you may have to right click the file and unblock it.
