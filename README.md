@@ -22,3 +22,4 @@ To use the program, you may have to right click the file and unblock it.
 ## How to use:
 Place the Img2WebP.ps1 file into the folder where all your images are, this will convert all files within the same folder and subdirectories, you will be also given an option to output the WebP results in a different folder that still keeps the same folder structure.
 Again, you may have to unblock the file before you can use it. You can do this by right clicking it and pressing 'Unblock'. You can also just run it as an administrator.
+The instructions are a W.I.P.
