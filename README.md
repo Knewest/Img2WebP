@@ -1,17 +1,18 @@
 ## Convert these image types to WebP (lossless) using Img2WebP:
 - PNG (*.png)
-- APNG (*.png)
-- JPEG 1 (*.jpeg, *.jpg, *.jpe, *.jfif, *.exif)
+- APNG (*.apng, *.png)
+- JPEG 1 (*.jpeg, *.jpg, *.jpe, *.jfif, *.jif, *.jfi)
 - JPEG 2000 (*.jp2, *.j2c, *.jpg2, *.jpf, *.jpx, *.j2k)
-- JPEG XR (*.jxr, *.wdp, *.wmp)
+- JPEG XR (*.jxr, *.hdp, *.wdp, *.wmp)
 - JPEG XL (*.jxl)
 - BMP (*.bmp, *.dib, *.rle)
 - TIFF (*.tiff, *.tif)
 - TGA (*.tga)
 - GIF (*.gif)
-- AV1/AVIF (*.avif)
+- AVIF (*.avif)
 - HEIF (*.heic, *.heif)
 - TGA (*.tga)
+- DDS (*.dds)
 
 ### Notes:
 JPEG 1 is first losslessly converted to JPEG XL - which has the ability to do lossless JPEG 1 recompression - as an intermediate format to then losslessly convert to WebP. <br>
@@ -20,6 +21,11 @@ Without this intermediate format, JPEG 1 would lose quality upon being converted
 To use the program, you may have to right click the file and unblock it.
 
 ## How to use:
-Place the Img2WebP.ps1 file into the folder where all your images are, this will convert all files within the same folder and subdirectories, you will be also given an option to output the WebP results in a different folder that still keeps the same folder structure. <br>
-Again, you may have to unblock the file before you can use it. You can do this by right clicking it and pressing 'Unblock'. You can also just run it as an administrator. <br>
+1 - Download the *.ps1 program here: https://github.com/Knewest/Img2WebP/releases
+<br> - You will have to download and install all the libraries for the program to function, I list of them will be found in the code or below.
+<br>3 - Right click the *.ps1 programg and click the "unblock" button.<br>If you have UAC disabled, you may have to run the program in administrator if it get blocked.
+<br>3 - Place the *.ps1 file in the folder with the images you need converting to WebP lossless, consider the subdirectories too.
+<br>4 - Right click the *.ps1 file and run it in Powershell, you will be asked if you want the outputted files to be put in a seperate folder (mimicing the folder structure too), once answered, this will begin the process.
+<br>5 - Wait for the conversion to complete and enjoy.
+<br><br>
 The instructions are a W.I.P.
