@@ -22,10 +22,10 @@ To use the program, you may have to right click the file and unblock it.
 
 ## How to use:
 1 - Download the *.ps1 program here: https://github.com/Knewest/Img2WebP/releases
-<br> - You will have to download and install all the libraries for the program to function, I list of them will be found in the code or below.
+<br>2 - You will have to download and install all the libraries for the program to function, I list of them will be found in the code or below. You can view the code [here](https://raw.githubusercontent.com/Knewest/Img2WebP/main/Img2WebP.ps1) or by using notepad.
 <br>3 - Right click the *.ps1 programg and click the "unblock" button.<br>If you have UAC disabled, you may have to run the program in administrator if it get blocked.
-<br>3 - Place the *.ps1 file in the folder with the images you need converting to WebP lossless, consider the subdirectories too.
-<br>4 - Right click the *.ps1 file and run it in Powershell, you will be asked if you want the outputted files to be put in a seperate folder (mimicing the folder structure too), once answered, this will begin the process.
-<br>5 - Wait for the conversion to complete and enjoy.
+<br>4 - Place the *.ps1 file in the folder with the images you need converting to WebP lossless, consider the subdirectories too.
+<br>5 - Right click the *.ps1 file and run it in Powershell, you will be asked if you want the outputted files to be put in a seperate folder (mimicing the folder structure too), once answered, this will begin the process.
+<br>6 - Wait for the conversion to complete and enjoy.
 <br><br>
 The instructions are a W.I.P.
