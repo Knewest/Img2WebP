@@ -21,11 +21,23 @@ Without this intermediate format, JPEG 1 would lose quality upon being converted
 To use the program, you may have to right click the file and unblock it.
 
 ## How to use:
-1 - Download the *.ps1 program here: https://github.com/Knewest/Img2WebP/releases
-<br>2 - You will have to download and install all the libraries for the program to function, I list of them will be found in the code or below. You can view the code [here](https://raw.githubusercontent.com/Knewest/Img2WebP/main/Img2WebP.ps1) or by using notepad.
-<br>3 - Right click the *.ps1 programg and click the "unblock" button.<br>If you have UAC disabled, you may have to run the program in administrator if it get blocked.
-<br>4 - Place the *.ps1 file in the folder with the images you need converting to WebP lossless, consider the subdirectories too.
-<br>5 - Right click the *.ps1 file and run it in Powershell, you will be asked if you want the outputted files to be put in a seperate folder (mimicing the folder structure too), once answered, this will begin the process.
+1 - Download the *.ps1 program here: https://github.com/Knewest/Img2WebP/releases<br>
+<br>2 - You will have to download and install all the libraries for the program to function, I list of them will be found in the code or below. You can view the code [here](https://raw.githubusercontent.com/Knewest/Img2WebP/main/Img2WebP.ps1) or by using notepad.<br>
+<br>3 - You may have to right click the *.ps1 program and click the "unblock" button.<br>
+--- Otherwise, there should the a notification giving you a security warning. Read it and act accordingly. If you have UAC disabled, you may have to run the program in administrator if it gets blocked.<br>
+<br>4 - Place the *.ps1 file in the folder with the images you need converting to WebP lossless, consider the subdirectories too.<br>
+<br>5 - Right click the *.ps1 file and run it in Powershell, you will be asked if you want the outputted files to be put in a seperate folder (mimicing the folder structure too), once answered, this will begin the process.<br>
 <br>6 - Wait for the conversion to complete and enjoy.
 <br><br>
 The instructions are a W.I.P.
+
+
+## How to setup:
+1 - Download and install all the libraries and binaries needed for the *.ps1 program to work:<br>
+<br>---- libwebp - https://developers.google.com/speed/webp/docs/precompiled
+<br>---- FFMPEG - https://www.gyan.dev/ffmpeg/builds/
+<br>---- libjxr - https://github.com/Knewest/precompiled-jxrlib-binaries/releases/tag/Release-v2019.10.9
+<br>---- libjxl - https://github.com/libjxl/libjxl/releases/tag/v0.8.1
+<br>---- ImageMagick - https://imagemagick.org/script/download.php#windows<br>
+<br>2 - Once you have downloaded and installed them all, open the code and set the directories for each library/binary respectively. The directories will be at the top of the code.<br>
+<br>3 - You may now successfully use the *.ps1 program.
