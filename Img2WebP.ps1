@@ -9,24 +9,23 @@ $JPEGXRDecoderPath = "C:\Codecs\LibJXRv2019.10.9\LibJXRv2019.10.9_Release_x64\JX
 # Download JXRDECAPP.EXE at: https://github.com/Knewest/precompiled-jxrlib-binaries/releases/tag/Release-v2019.10.9
 
 $JPEGXLDecoderPath = "C:\Codecs\LibJXLv0.8.1\djxl.exe"
-# Download DJXL.EXE at: https://jpeg.org/jpegxl/software.html
-
 $JPEGXLEncoderPath = "C:\Codecs\LibJXLv0.8.1\cjxl.exe"
-# Download CJXL.EXE at: https://jpeg.org/jpegxl/software.html
+# Download DJXL.EXE and CJXL.EXE at: https://jpeg.org/jpegxl/software.html
 
 $IdentifyPath = "C:\Codecs\LibImageMagick\ImageMagick-7.1.1-Q16-HDRI\identify.exe"
-# Download IDENTIFY.EXE at: https://imagemagick.org/script/download.php#windows
-
 $MagickPath = "C:\Codecs\LibImageMagick\ImageMagick-7.1.1-Q16-HDRI\magick.exe"
-# Download MAGICK.EXE at: https://imagemagick.org/script/download.php#windows
+# Download MAGICK.EXE and IDENTIFY.EXE at: https://imagemagick.org/script/download.php#windows
+
+#> $NvidiaDecoderPath = "C:\Codecs\NVIDIA Texture Tools\nvcompress.exe"
+# Download NVCOMPRESS.EXE at: https://developer.nvidia.com/gpu-accelerated-texture-compression <#
 
 # Load assembly so messages can actually appear on your screen.
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
 
-# This will search for PNG, APNG, JPG, JPEG, JPE, EXIF, JFIF, BMP, DIB, RLE, AVIF, TIF, TIFF, JXR, WDP, WMP, JXL, JP2, J2C, JPG2, JPF, JPX, J2K, TGA, HEIC, HEIF and GIF files in the current directory and its subdirectories.
-$images = Get-ChildItem -Path (Get-Location) -Include *.png, *.apng, *.jpg,*.jpeg,*.jpe,*.exif,*.jfif,*.bmp,*.dib,*.rle,*.avif,*.tif,*.tiff,*.jxr,*.wdp,*.wmp,*.jxl,*.jp2,*.j2c,*.jpg2,*.jpf,*.jpx,*.j2k,*.tga,*.heic,*.heif,*.gif -Recurse
+# This will search for PNG, APNG, JPG, JPEG, JPE, JIF, JFIF, JIF, BMP, DIB, RLE, AVIF, TIF, TIFF, JXR, HDP, WDP, WMP, JXL, JP2, J2C, JPG2, JPF, JPX, J2K, TGA, DDS, HEIC, HEIF and GIF files in the current directory and its subdirectories.
+$images = Get-ChildItem -Path (Get-Location) -Include *.png, *.apng, *.jpg,*.jpeg,*.jpe,*.jif,*.jfif,*.jfi,*.bmp,*.dib,*.rle,*.avif,*.tif,*.tiff,*.jxr,*.hdp,*.wdp,*.wmp,*.jxl,*.jp2,*.j2c,*.jpg2,*.jpf,*.jpx,*.j2k,*.tga,*.dds,*.heic,*.heif,*.gif -Recurse
 
 # Ask the user if they want to create a folder to put the converted files in.
 $createWebPFolder = [System.Windows.Forms.MessageBox]::Show('Would you like to create a folder to put the converted files in?
@@ -78,7 +77,7 @@ if ($image.Extension -eq ".png" -or $image.Extension -eq ".apng") {
     # If the image is not an animated PNG, convert it to a static WebP using FFMPEG.EXE too.
 }
 	
-	elseif ($image.Extension -eq ".jxr" -or $image.Extension -eq ".wdp") {
+	elseif ($image.Extension -eq ".jxr" -or $image.Extension -eq ".wdp" -or $image.Extension -eq ".hdp") {
 	# Check if JPEGXRDecoderPath and WebPEncoderPath exist, otherwise prompt user to download.
 	if (-not(Test-Path $JPEGXRDecoderPath) -or -not(Test-Path $WebPEncoderPath)) {
 		[System.Windows.Forms.MessageBox]::Show("The JPEG XR decoder (JXRDECAPP.EXE) and/or the WebP encoder (CWEBP.EXE) were not found.`n_________________________________________________________________________`n`nPlease download them at the links below:`n`nhttps://github.com/Knewest/precompiled-jxrlib-binaries/releases/tag/Release-v2019.10.9`nhttps://developers.google.com/speed/webp/docs/precompiled`n_________________________________________________________________________`n`nIf you already have them installed, make sure the directories in the code is set correctly.`nThe code can be opened using Notepad.")
@@ -96,7 +95,7 @@ if ($image.Extension -eq ".png" -or $image.Extension -eq ".apng") {
     Remove-Item $tempTIFPath
 }
 
-elseif ($image.Extension -eq ".jpg" -or $image.Extension -eq ".jpeg" -or $image.Extension -eq ".jpe" -or $image.Extension -eq ".jfif" -or $image.Extension -eq ".exif") {
+elseif ($image.Extension -eq ".jpg" -or $image.Extension -eq ".jpeg" -or $image.Extension -eq ".jpe" -or $image.Extension -eq ".jfif" -or $image.Extension -eq ".jif" -or $image.Extension -eq ".jfi") {
 	if (-not(Test-Path $JPEGXLEncoderPath)) {
 		[System.Windows.Forms.MessageBox]::Show("The JPEG XL encoder (CJXL.EXE), JPEG XL decoder (DJXL.EXE) and/or the WebP encoder (CWEBP.EXE) was not found.`n_________________________________________________________________________`n`nPlease download them at the links below:`n`nhttps://jpeg.org/jpegxl/software.html`nhttps://jpeg.org/jpegxl/software.html`nhttps://developers.google.com/speed/webp/docs/precompiled`n_________________________________________________________________________`n`nIf you already have them installed, make sure the directories in the code is set correctly.`nThe code can be opened using Notepad.")
 		break
@@ -119,13 +118,40 @@ elseif ($image.Extension -eq ".jpg" -or $image.Extension -eq ".jpeg" -or $image.
 	Remove-Item $tempPNGPath
 }
 
-	elseif ($image.Extension -eq ".jp2" -or $image.Extension -eq ".j2c" -or $image.Extension -eq ".jpg2" -or $image.Extension -eq ".jpf" -or $image.Extension -eq ".jpx" -or $image.Extension -eq ".j2k" -or $image.Extension -eq ".tga") {
+<# elseif ($image.Extension -eq ".hh" -or $image.Extension -eq ".hh") {
+		# Check if ImageMagick is installed, otherwise prompt user to download it.
+		if(-not(Test-Path $NvidiaDecoderPath)) {
+			[System.Windows.Forms.MessageBox]::Show("The Nvidia decoder (NVCOMPRESS.EXE) was not found.`n_________________________________________________________________________`n`nPlease download it at the link below:`n`nhttps://developer.nvidia.com/gpu-accelerated-texture-compression`n_________________________________________________________________________`n`nIf you already have it installed, make sure the directories in the code are set correctly.`nThe code can be opened using Notepad.")
+			break
+		}
+		# This will losslessly convert DDS and TGA to WebP using NVCOMPRESS.EXE.
+		$tempPNGPath = Join-Path $outputDir ($image.BaseName + ".png")
+		& $NvidiaDecoderPath -highest -alpha -profile -nomips -bc7 $image.FullName $tempPNGPath
+
+        # This will losslessly convert the temporary PNG to WebP using CWEBP.EXE.
+        & $WebPEncoderPath -lossless -z 6 $tempPNGPath -o "$fileName.webp"
+
+        # Delete the temporary PNG file.
+        Remove-Item $tempPNGPath
+	} #>
+	
+	elseif ($image.Extension -eq ".heic" -or $image.Extension -eq ".heif" -or $image.Extension -eq ".avif" -or $image.Extension -eq ".dds" -or $image.Extension -eq ".tga") {
+		# Check if ImageMagick is installed, otherwise prompt user to download it.
+		if(-not(Test-Path $MagickPath)) {
+			[System.Windows.Forms.MessageBox]::Show("The ImageMagick encoder/decoder (MAGICK.EXE) was not found.`n_________________________________________________________________________`n`nPlease download it at the link below:`n`nhttps://imagemagick.org/script/download.php#windows`n_________________________________________________________________________`n`nIf you already have it installed, make sure the directories in the code are set correctly.`nThe code can be opened using Notepad.")
+			break
+		}
+		# This will losslessly convert DDS, TGA, HEIC, HEIF and AVIF to WebP using ImageMagick.
+		& $MagickPath -define webp:lossless=true -define webp:method=4 $image.FullName "$fileName.webp"
+	}
+
+	elseif ($image.Extension -eq ".jp2" -or $image.Extension -eq ".j2c" -or $image.Extension -eq ".jpg2" -or $image.Extension -eq ".jpf" -or $image.Extension -eq ".jpx" -or $image.Extension -eq ".j2k") {
 		# Check if FFMPEG exists, otherwise prompt user to download it.
 		if (-not(Test-Path $FFMPEGPath)) {
 			[System.Windows.Forms.MessageBox]::Show("The FFMPEG encoder/decoder (FFMPEG.EXE) was not found.`n_________________________________________________________________________`n`nPlease download it at the link below:`n`nhttps://www.gyan.dev/ffmpeg/builds/`n_________________________________________________________________________`n`nIf you already have it installed, make sure the directories in the code is set correctly.`nThe code can be opened using Notepad.")
 			break
 		}
-		# This will losslessly covert JPEG 2000 and TGA to WebP.
+		# This will losslessly covert JPEG 2000 to WebP.
 		& $FFMPEGPath -i $image.FullName -c:v libwebp -compression_level 4 -lossless 1 -an -sn "$fileName.webp"
 	}
 
@@ -146,6 +172,7 @@ elseif ($image.Extension -eq ".jpg" -or $image.Extension -eq ".jpeg" -or $image.
         # Delete the temporary PNG file.
         Remove-Item $tempPNGPath
     }
+	
 	elseif ($image.Extension -eq ".gif") {
     # Check if GIF2WEBP.EXE encoder exists, otherwise prompt user to download.
     if (-not(Test-Path $GIF2WebPEncoderPath)) {
@@ -153,7 +180,7 @@ elseif ($image.Extension -eq ".jpg" -or $image.Extension -eq ".jpeg" -or $image.
         break
     }
     # This will losslessly convert animated GIF to animated WebP using GIF2WEBP.EXE.
-    & $GIF2WebPEncoderPath -m 6 $image.FullName -o "$fileName.webp"
+    & $GIF2WebPEncoderPath -m 4 $image.FullName -o "$fileName.webp"
     } else {
         # This will losslessly convert all other image formats to WebP using CWEBP.EXE.
         & $WebPEncoderPath -lossless -z 6 $image.FullName -o "$fileName.webp"
@@ -168,5 +195,5 @@ $msgBoxIcon = "Information"
 [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
 [System.Windows.Forms.MessageBox]::Show($msgBoxText, $msgBoxTitle, $msgBoxButton, $msgBoxIcon)
 
-# Version 1.2.0 of Img2WebP
+# Version 1.3.0 of Img2WebP
 # Copyright (Boost Software License 1.0) 2023-2023 Knew
