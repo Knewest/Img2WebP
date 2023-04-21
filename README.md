@@ -7,7 +7,7 @@
 - JPEG XL (`*.jxl`)
 - BMP (`*.bmp`, `*.dib`, `*.rle`)
 - TIFF (`*.tiff`, `*.tif`)
-- TGA (`*.tg`a)
+- TGA (`*.tga`)
 - GIF (`*.gif`)
 - AVIF (`*.avif`)
 - HEIF (`*.heic`, `*.heif`)
