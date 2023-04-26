@@ -50,3 +50,6 @@ The instructions are a W.I.P.
 
 3. You may now successfully use the `*.ps1` program.
 <br>- <b>Note</b> - Windows may not allow you to run PowerShell scripts, so you will need to right click to unblock it and trust it upon exectuing it.
+
+## What do I have planned?
+I plan to turn this into a user friendly tool that will automatically install all requirely libraries and without the need to move the Powershell script into a folder, rather it would be a simple binary exacutable with an interface.
